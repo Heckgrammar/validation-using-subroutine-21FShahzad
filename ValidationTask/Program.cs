@@ -31,12 +31,16 @@
         static bool ValidName(string name)
         {
             // name must be at least two characters and contain only letters
+            
         }
 
         static bool validAge(int age)
         {
             //age must be between 11 and 18 inclusive
-
+            if  (age >= 18 && age >= 11) 
+            {
+            
+            }
         }
 
    
