@@ -31,6 +31,7 @@
         static bool ValidName(string name)
         {
             // name must be at least two characters and contain only letters
+
             
         }
 
@@ -39,7 +40,13 @@
             //age must be between 11 and 18 inclusive
             if  (age >= 18 && age >= 11) 
             {
-            
+                return true;
+            }
+            else 
+            {
+                Console.WriteLine("Please enter age between 111 and 18, inclusivley");
+                return false;
+
             }
         }
 
