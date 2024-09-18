@@ -73,8 +73,10 @@ namespace ValidationTask
             // ab£$%^&* = not valid
             // QWERTYu! = valid
 
-            if (password.Length >= 8 &&  password.Any(char.IsLower) && password.Any(char.IsUpper) && password.Any(char.IsSymbol)) 
-                (password.Where((item, index) => index > 0 && item.Equals(password.ElementAt(index)));)
+            if (password.Length >= 8 && password.Any(char.IsLower) && password.Any(char.IsUpper) 
+                && password.Any(char.IsSymbol) == true)
+
+                
             {
                 return  true;
             }
