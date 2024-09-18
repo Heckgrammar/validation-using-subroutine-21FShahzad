@@ -30,6 +30,16 @@
         }
         static bool ValidName(string name)
         {
+            if (name.Length >= 0 && name.All(char.IsLetter) == true )
+            {
+                return true;
+            }
+            else 
+            {
+            return false;
+            }
+            
+            
             // name must be at least two characters and contain only letters
 
             
@@ -44,7 +54,7 @@
             }
             else 
             {
-                Console.WriteLine("Please enter age between 111 and 18, inclusivley");
+           
                 return false;
 
             }
@@ -53,6 +63,22 @@
    
         static bool ValidPassword(string password)
         {
+
+            if (password.Length >= 8 &&  password.Any(char.IsLower) && password.Any(char.IsUpper) && password.Any(char.IsSymbol)) 
+            {
+                return  true;
+            }
+            else 
+            {
+                return false; 
+            }
+            
+            
+            
+            
+            
+            
+            
             // Check password is at least 8 characters in length
 
 
