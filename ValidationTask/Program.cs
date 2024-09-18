@@ -1,4 +1,6 @@
-﻿namespace ValidationTask
+﻿using static System.Net.Mime.MediaTypeNames;
+
+namespace ValidationTask
 {
     internal class Program
     {
@@ -64,7 +66,15 @@
         static bool ValidPassword(string password)
         {
 
+            // Check password is at least 8 characters in length
+            // Check password contains a mix of lower case, upper case and non letter characters
+            // QWErty%^& = valid
+            // QWERTYUi = not valid
+            // ab£$%^&* = not valid
+            // QWERTYu! = valid
+
             if (password.Length >= 8 &&  password.Any(char.IsLower) && password.Any(char.IsUpper) && password.Any(char.IsSymbol)) 
+                (password.Where((item, index) => index > 0 && item.Equals(password.ElementAt(index)));)
             {
                 return  true;
             }
@@ -79,14 +89,6 @@
             
             
             
-            // Check password is at least 8 characters in length
-
-
-            // Check password contains a mix of lower case, upper case and non letter characters
-            // QWErty%^& = valid
-            // QWERTYUi = not valid
-            // ab£$%^&* = not valid
-            // QWERTYu! = valid
 
 
             // Check password contains no runs of more than 2 consecutive or repeating letters or numbers
