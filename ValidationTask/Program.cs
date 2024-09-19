@@ -36,8 +36,8 @@ namespace ValidationTask
             {
                 return true;
             }
-            else 
-            {
+            else
+            { 
             return false;
             }
             
@@ -50,7 +50,7 @@ namespace ValidationTask
         static bool validAge(int age)
         {
             //age must be between 11 and 18 inclusive
-            if  (age >= 18 && age >= 11) 
+            if  (age >= 18 && age >= 11)
             {
                 return true;
             }
@@ -85,6 +85,16 @@ namespace ValidationTask
                 return false; 
             }
             
+
+
+            for (int i= 0; i < password.Length; i++)
+                if  (password[i] == password[i+2])
+                {
+                    return false;
+                }
+                return true;
+
+
 
             // Check password contains no runs of more than 2 consecutive or repeating letters or numbers
             // AAbbdd!2 = valid (only 2 consecutive letters A and B and only 2 repeating of each)
