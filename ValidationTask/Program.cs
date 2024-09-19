@@ -32,7 +32,7 @@ namespace ValidationTask
         }
         static bool ValidName(string name)
         {
-            if (name.Length >= 0 && name.All(char.IsLetter) == true )
+            if (name.Length >= 2 && name.All(char.IsLetter) == true )
             {
                 return true;
             }
@@ -85,13 +85,6 @@ namespace ValidationTask
                 return false; 
             }
             
-            
-            
-            
-            
-            
-            
-
 
             // Check password contains no runs of more than 2 consecutive or repeating letters or numbers
             // AAbbdd!2 = valid (only 2 consecutive letters A and B and only 2 repeating of each)
@@ -103,6 +96,8 @@ namespace ValidationTask
         }
         static bool validEmail(string email)
         {
+            if (email.Substring[>=1] == "@" &&  email.Substring[>=1] == "."  &&  email.Substring[>=1] == )
+            
             // a valid email address
             // has at least 2 characters followed by an @ symbol
             // has at least 2 characters followed by a .
