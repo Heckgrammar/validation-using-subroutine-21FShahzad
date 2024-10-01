@@ -23,8 +23,7 @@ namespace ValidationTask
             emailAddress = Console.ReadLine();
 
 
-            username = createUserName(firstName,lastName,age);
-            Console.WriteLine($"Username is {username}, you have successfully registered please remember your password");
+           
 
             //  Test your program with a range of tests to show all validation works
             // Show your evidence in the Readme
@@ -72,27 +71,10 @@ namespace ValidationTask
             // QWERTYUi = not valid
             // ab£$%^&* = not valid
             // QWERTYu! = valid
-
-            if (password.Length >= 8 && password.Any(char.IsLower) && password.Any(char.IsUpper) 
-                && password.Any(char.IsSymbol) == true)
-
-                
-            {
-                return  true;
-            }
-            else 
-            {
-                return false; 
-            }
-            
-
-
-            for (int i= 0; i < password.Length; i++)
-                if  (password[i] == password[i+2])
-                {
-                    return false;
-                }
-                return true;
+            return password.Length >= 8 &&
+              password.Any(char.IsLower) &&
+              password.Any(char.IsUpper) &&
+              password.Any(ch => !char.IsLetterOrDigit(ch));
 
 
 
@@ -106,27 +88,53 @@ namespace ValidationTask
         }
         static bool validEmail(string email)
         {
-            if (email.Substring[>=1] == "@" &&  email.Substring[>=1] == "."  &&  email.Substring[>=1] == )
-            
-            // a valid email address
-            // has at least 2 characters followed by an @ symbol
-            // has at least 2 characters followed by a .
-            // has at least 2 characters after the .
-            // contains only one @ and any number of .
-            // does not contain any other non letter or number characters
+            if (email == "")
+            {
+                return false;
+            }
+
+            if (email.IndexOf('@') != email.LastIndexOf('@'))
+            {
+                return false;
+            }
+
+            int atIndex = email.IndexOf('@');
+            int dotIndex = email.IndexOf('.', atIndex);
+
+            if (atIndex < 2)
+            {
+                return false;
+            }
+
+            if (dotIndex <= atIndex + 1 || dotIndex >= email.Length - 2)
+            {
+                return false;
+            }
+
+            return true;
 
         }
-        static string createUserName(string firstName, string lastName, int age)
-        {
-            // username is made up from:
-            // first two characters of first name
-            // last two characters of last name
-            // age
-            //e.g. Bob Smith aged 34 would have the username Both34
 
-
-
-        }
+        // a valid email address
+        // has at least 2 characters followed by an @ symbol
+        // has at least 2 characters followed by a .
+        // has at least 2 characters after the .
+        // contains only one @ and any number of .
+        // does not contain any other non letter or number characters
 
     }
-}
+        static string createUserName(string firstName, string lastName, int age)
+        {
+        // username is made up from:
+        // first two characters of first name
+        // last two characters of last name
+        // age
+        //e.g. Bob Smith aged 34 would have the username Both34
+
+        return firstName.Substring(0, 2) + lastName.Substring(lastName.Length - 2) + age;
+
+    }
+
+    }
+
+
